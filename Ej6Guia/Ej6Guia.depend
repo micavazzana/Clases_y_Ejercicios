@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1587954879 source:c:\users\mica\desktop\ej6guia\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1587938330 c:\users\mica\desktop\ej6guia\funciones.h
+
+1587938330 c:\users\mica\desktop\ej6guia\funciones.c
+	"funciones.h"
+
