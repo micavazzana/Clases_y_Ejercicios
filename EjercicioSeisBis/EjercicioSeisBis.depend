@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1588113841 source:c:\users\mica\desktop\ejercicioseisbis\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1588113841 c:\users\mica\desktop\ejercicioseisbis\funciones.h
+
+1588113841 source:c:\users\mica\desktop\ejercicioseisbis\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
