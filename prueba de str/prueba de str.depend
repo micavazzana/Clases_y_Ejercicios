@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1590970813 source:c:\users\mica\desktop\prueba de str\strmica.c
+	"strMica.h"
+
+1590944869 c:\users\mica\desktop\prueba de str\strmica.h
+
+1591673552 source:c:\users\mica\desktop\prueba de str\main.c
+	<stdio.h>
+	<string.h>
+	"strMica.h"
+
