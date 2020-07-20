@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1595277978 source:c:\users\mica\desktop\ejerciciosclase7\functions.c
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+	"inputs.h"
+
+1595277825 c:\users\mica\desktop\ejerciciosclase7\functions.h
+
+1595277964 c:\users\mica\desktop\ejerciciosclase7\inputs.h
+
+1595277964 source:c:\users\mica\desktop\ejerciciosclase7\main.c
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+
+1595277964 source:c:\users\mica\desktop\ejerciciosclase7\inputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inputs.h"
+
