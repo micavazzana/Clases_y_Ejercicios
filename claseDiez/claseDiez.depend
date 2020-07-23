@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1595537771 source:c:\users\mica\desktop\clasediez\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Cliente.h"
+
+1595532572 source:c:\users\mica\desktop\clasediez\inputs.c
+	"inputs.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1595532598 c:\users\mica\desktop\clasediez\inputs.h
+
+1595537729 source:c:\users\mica\desktop\clasediez\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Cliente.h"
+
+1595537729 c:\users\mica\desktop\clasediez\cliente.h
+	"inputs.h"
+

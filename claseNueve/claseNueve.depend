@@ -25,7 +25,7 @@
 	<string.h>
 	"inputs.h"
 
-1595368783 c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\inputs.h
+1595525175 c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\inputs.h
 
 1595457147 source:c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\main.c
 	<stdio.h>
@@ -36,7 +36,7 @@
 1595468315 c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\producto.h
 	"inputs.h"
 
-1595454279 source:c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\producto.c
+1595468315 source:c:\users\mica\desktop\subir a git\ejerciciosvarios\clasenueve\producto.c
 	<stdio.h>
 	<string.h>
 	"Producto.h"
