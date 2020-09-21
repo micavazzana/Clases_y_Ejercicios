@@ -132,24 +132,28 @@ int utn_getAlphanumeric(char* name, int len, char* message, char* errorMessage, 
  * \param int len, tamanio de la cadena que se recibe//size of the string that receives
  * \return (-1) ERROR (0) EXITO // (-1) ERROR (0) SUCCESS
  */
-static int getString(char* string, int len)
-{
-    int result = ERROR;
-    char aux[4096];
+static int getString(char *string, int len) {
 
-    if(string != NULL && len > 0)
-    {
-        fpurge(stdin);//__fpurge(stdin);//fflush(stdin);
-        fgets(aux,sizeof(aux),stdin);
-        aux[strnlen(aux,sizeof(aux))-1]='\0';
+	int result = ERROR;
+	char aux[4096];
 
-        if(strnlen(aux,sizeof(aux)) <= len)
-        {
-            strncpy(string,aux,len);
-            result = SUCCESS;
-        }
-    }
-    return result;
+	if (string != NULL && len > 0)
+	{
+		fpurge(stdin); //__fpurge(stdin);//fflush(stdin);
+		fgets(aux, sizeof(aux), stdin);
+		aux[strnlen(aux, sizeof(aux)) - 1] = '\0';
+
+		if (aux[0] == '\0')
+		{
+			result = ERROR;
+		}
+		else if (strnlen(aux, sizeof(aux)) <= len)
+		{
+			strncpy(string, aux, len);
+			result = SUCCESS;
+		}
+	}
+	return result;
 }
 
 /**
