@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1595791096 source:c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\inputs.c
+	"inputs.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1595958844 c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\inputs.h
+
+1596056944 source:c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inputs.h"
+	"Pantalla.h"
+
+1596052572 c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\pantalla.h
+
+1596159539 source:c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Informar.h"
+	"inputs.h"
+
+1596159406 c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\contrataciones.h
+
+1596159406 source:c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\contrataciones.c
+	"Contrataciones.h"
+	"inputs.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1596159439 source:c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\informar.c
+	"Informar.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1596159090 c:\users\mica\desktop\subir a git\modelosparcial_labuno\modelodeparcialpantallas\informar.h
+	"Contrataciones.h"
+	"Pantalla.h"
+
