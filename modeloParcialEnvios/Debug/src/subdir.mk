@@ -8,6 +8,7 @@ C_SRCS += \
 ../src/Envio.c \
 ../src/Inputs.c \
 ../src/LinkedList.c \
+../src/Parser.c \
 ../src/Validations.c \
 ../src/modeloParcialEnvios.c 
 
@@ -16,6 +17,7 @@ OBJS += \
 ./src/Envio.o \
 ./src/Inputs.o \
 ./src/LinkedList.o \
+./src/Parser.o \
 ./src/Validations.o \
 ./src/modeloParcialEnvios.o 
 
@@ -24,6 +26,7 @@ C_DEPS += \
 ./src/Envio.d \
 ./src/Inputs.d \
 ./src/LinkedList.d \
+./src/Parser.d \
 ./src/Validations.d \
 ./src/modeloParcialEnvios.d 
 
