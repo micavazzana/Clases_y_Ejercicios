@@ -4,6 +4,7 @@
  *  Created on: 13 nov. 2020
  *      Author: micavazzana
  */
+#include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -224,20 +225,20 @@ int controller_createListOfZones(LinkedList* listaEnvios)
 	return result;
 }
 
-static int zoneIsInList(LinkedList* listZona, int len, char* zona)
+static int zoneIsInList(LinkedList* listZona, char* zona)
 {
 	int result = FALSE;
 	int i;
 	char bufferZona[ZONE_LEN];
 	Zona* pZona;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < ll_len(listZona); i++)
 	{
 		pZona = ll_get(listZona,i);
 		zona_getZonaDestinos(pZona,bufferZona);
 		if (strncmp(bufferZona,zona,ZONE_LEN)==0)
 		{
-			result = TRUE; //alredy exists
+			result = TRUE;
 			break;
 		}
 	}
@@ -261,7 +262,7 @@ LinkedList* zona_generateList(LinkedList* listaEnvios)
     		{
     			pElement = (Envio*) ll_get(listaEnvios,i);
     			envio_getZonaDestinos(pElement,bufferZonaEnvios);
-				if(i == 0 || zoneIsInList(listaZonas,ll_len(listaEnvios),bufferZonaEnvios)==FALSE)
+				if(zoneIsInList(listaZonas,bufferZonaEnvios)==FALSE)
 				{
 					pElementZona = zona_new();
 					if(pElementZona != NULL)
@@ -270,6 +271,7 @@ LinkedList* zona_generateList(LinkedList* listaEnvios)
 						ll_add(listaZonas,pElementZona);
 					} else {
 						ll_deleteLinkedList(listaZonas);
+						listaZonas = NULL;
 						break;
 					}
 				}
@@ -289,7 +291,8 @@ int controller_printOneZone(void* pElement)
 	{
 		unaZona = (Zona*)pElement;
 		zona_getZonaDestinos(unaZona,bufferZona);
-		printf("\n%15s",bufferZona);
+		bufferZona[0] = bufferZona[0]-32;
+		printf("\n %s",bufferZona);
 		returnAux = SUCCESS;
 	}
 	return returnAux;
@@ -301,7 +304,7 @@ int controller_printListZone(LinkedList* listaZonas)
 
 	if(listaZonas != NULL)
 	{
-		printf("\n%15s\n","ZONA");
+		printf("\n%s\n","ZONAS: ");
 		returnAux = ll_map(listaZonas,controller_printOneZone);
 	}
 	return returnAux;
