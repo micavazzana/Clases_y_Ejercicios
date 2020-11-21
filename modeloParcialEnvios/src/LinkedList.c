@@ -537,7 +537,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 }
 
 
-/*******************************************/
+/******************* NUEVAS ************************/
 
 int ll_map(LinkedList* this, Function pFunc)
 {
@@ -624,4 +624,27 @@ float ll_reduceFloat(LinkedList* this, FunctionReduceFloat pFunc)
 		}
 	}
 	return acum;
+}
+
+int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg)
+{
+	int returnAux = ERROR;
+	void* pAux;
+	int i;
+
+	if (this != NULL && pFunc != NULL)
+	{
+		for (i = ll_len(this) - 1; i >= 0; i--)
+		{
+			pAux = ll_get(this, i);
+			if (pAux != NULL)
+			{
+				if (pFunc(pAux,arg) == FALSE)
+				{
+					returnAux = ll_remove(this, i);
+				}
+			}
+		}
+	}
+	return returnAux;
 }

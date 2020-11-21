@@ -33,6 +33,7 @@ struct LinkedList
 
 typedef int(*Function)(void*);
 typedef float(*FunctionReduceFloat)(void*);
+typedef int (*FunctionFilter)(void*, void*);
 
 //Publicas
 LinkedList* ll_newLinkedList(void);
@@ -59,3 +60,4 @@ int ll_map(LinkedList* this, Function pFunc);
 int ll_filter(LinkedList * this, Function pFunc);
 int ll_reduceInt(LinkedList* this, Function pFunc);
 float ll_reduceFloat(LinkedList* this, FunctionReduceFloat pFunc);
+int ll_filter2(LinkedList * this, FunctionFilter pFunc, void* arg);

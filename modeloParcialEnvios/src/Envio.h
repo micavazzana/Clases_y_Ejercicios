@@ -19,8 +19,12 @@ typedef struct {
 	float costoEnvio;
 }Envio;
 
+typedef struct{
+	char zonaDestinos[ZONE_LEN];
+}Zona;
+
 Envio* envio_new(void);
-Envio* envio_newParametros(char* idEnvio, char* nombreProducto, char* idCamion, char* zonaDestinos, char* kmRecorridos, char* tipoEntrega, float costoEnvio);
+Envio* envio_newParametros(char* idEnvio, char* nombreProducto, char* idCamion, char* zonaDestinos, char* kmRecorridos, char* tipoEntrega);
 void envio_delete(Envio* this);
 
 int envio_setId(Envio* this, int id);
@@ -54,6 +58,11 @@ int envio_getCostoEnvio(Envio* this, float* costoEnvio);
 int envio_setCostoEnvioTxt(Envio* this, char* costoEnvio);
 int envio_getCostoEnvioTxt(Envio* this, char* costoEnvio);
 
-float calcularCostoEnvio(float kmRecorridos, int tipoEntrega);
+float envio_calcularCosto(float kmRecorridos, int tipoEntrega);
+int envio_compararZona(void* this, void* arg);
+
+Zona* zona_new(void);
+int zona_setZonaDestinos(Zona *this, char* zona);
+int zona_getZonaDestinos(Zona* this, char* zona);
 
 #endif /* ENVIO_H_ */

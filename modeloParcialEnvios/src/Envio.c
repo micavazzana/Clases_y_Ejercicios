@@ -22,11 +22,11 @@ Envio* envio_new(void)
 	return (Envio*) malloc(sizeof(Envio));
 }
 
-Envio* envio_newParametros(char* idEnvio, char* nombreProducto, char* idCamion, char* zonaDestinos, char* kmRecorridos, char* tipoEntrega, float costoEnvio)
+Envio* envio_newParametros(char* idEnvio, char* nombreProducto, char* idCamion, char* zonaDestinos, char* kmRecorridos, char* tipoEntrega)
 {
 	Envio* this = NULL;
 
-	if (idEnvio != NULL && nombreProducto != NULL && idCamion != NULL &&  zonaDestinos != NULL && kmRecorridos != NULL &&  tipoEntrega != NULL && costoEnvio > 0)
+	if (idEnvio != NULL && nombreProducto != NULL && idCamion != NULL &&  zonaDestinos != NULL && kmRecorridos != NULL &&  tipoEntrega != NULL)
 	{
 		this = envio_new();
 		if (this != NULL)
@@ -37,7 +37,6 @@ Envio* envio_newParametros(char* idEnvio, char* nombreProducto, char* idCamion, 
 			envio_setZonaDestinos(this,zonaDestinos);
 			envio_setKmRecorridosTxt(this,kmRecorridos);
 			envio_setTipoEntregaTxt(this,tipoEntrega);
-			envio_setCostoEnvio(this,costoEnvio);
 		}
 	}
 	return this;
@@ -312,7 +311,7 @@ int envio_getCostoEnvioTxt(Envio* this, char* costoEnvio)
     return result;
 }
 
-float calcularCostoEnvio(float kmRecorridos, int tipoEntrega)
+float envio_calcularCosto(float kmRecorridos, int tipoEntrega)
 {
 	float costo = ERROR;
 
@@ -340,4 +339,56 @@ float calcularCostoEnvio(float kmRecorridos, int tipoEntrega)
 		}
 	}
 	return costo;
+}
+
+int envio_compararZona(void* this, void* arg)
+{
+	int returnAux = ERROR;
+	Envio* zone = (Envio*)this;
+	char bufferZona[ZONE_LEN];
+	char* zona;
+
+	zona = (char*)arg;
+	if(this != NULL)
+	{
+		envio_getZonaDestinos(zone,bufferZona);
+		if(strncasecmp(bufferZona,zona,ZONE_LEN)==0)
+		{
+			returnAux = TRUE;
+		} else {
+			returnAux = FALSE;
+		}
+	}
+	return returnAux;
+}
+
+
+/*********** ZONA **************/
+
+Zona* zona_new(void)
+{
+	return (Zona*) malloc(sizeof(Zona));
+}
+
+int zona_setZonaDestinos(Zona *this, char* zona)
+{
+	int result = ERROR;
+
+	if (this != NULL && zona != NULL)// && isValidLetters(zona, ZONE_LEN))
+	{
+		strncpy(this->zonaDestinos, zona, ZONE_LEN);
+		result = SUCCESS;
+	}
+	return result;
+}
+
+int zona_getZonaDestinos(Zona* this, char* zona)
+{
+    int result = ERROR;
+    if (this != NULL && zona != NULL)
+    {
+        strncpy(zona, this->zonaDestinos, ZONE_LEN);
+        result = SUCCESS;
+    }
+    return result;
 }

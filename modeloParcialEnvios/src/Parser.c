@@ -1,4 +1,4 @@
-/*
+ /*
  * Parser.c
  *
  *  Created on: 14 nov. 2020
@@ -22,7 +22,6 @@ int parser_EnvioTxt(FILE* pFile , LinkedList* pArray)
 	char zonaDestinos[500];
 	char kmRecorridos[500];
 	char tipoEntrega[500];
-	float costoEnvio=10;
 	Envio* pElement;
 
 	if(pFile != NULL && pArray != NULL)
@@ -32,12 +31,8 @@ int parser_EnvioTxt(FILE* pFile , LinkedList* pArray)
 		{
 			if(fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",idEnvio,nombreProducto,idCamion,zonaDestinos,kmRecorridos,tipoEntrega)==6)
 			{
-				//costoEnvio = calcularCostoEnvio(atof(kmRecorridos), atoi(tipoEntrega));
-				if(costoEnvio!= ERROR)
-				{
-					pElement = envio_newParametros(idEnvio, nombreProducto, idCamion, zonaDestinos, kmRecorridos, tipoEntrega, costoEnvio);
-					returnAux = ll_add(pArray,pElement);
-				}
+				pElement = envio_newParametros(idEnvio, nombreProducto, idCamion, zonaDestinos, kmRecorridos, tipoEntrega);
+				returnAux = ll_add(pArray,pElement);
 			} else {
 				returnAux = -2;
 				break;
@@ -46,6 +41,7 @@ int parser_EnvioTxt(FILE* pFile , LinkedList* pArray)
 	}
 	return returnAux;
 }
+
 int parser_EnvioBinario(FILE* pFile , LinkedList* pArray)
 {
 	int returnAux = ERROR;

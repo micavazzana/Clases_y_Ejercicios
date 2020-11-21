@@ -31,21 +31,19 @@ int main(void) {
 			if(utn_getNumber(&option,
 					"\n\nIngrese una opcion: \n"
 					"\n1. Cargar los datos desde el archivo data.csv (modo texto)."
-					"\n2. Cargar los datos desde el archivo data.bin (modo binario)."
-					"\n3. Imprimir Envios"
-					"\n4. Calcular costos"
-					"\n5. Generar archivo de costos para zona"
-					"\n6. Imprimir lista de zonas"
-					"\n7. Guardar los datos en el archivo data.csv (modo texto)."
-					"\n8. Guardar los datos en el archivo data.csv (modo binario)."
-					"\n9. SALIR\n\n","\nError! elija una opcion valida",1,9,5)==SUCCESS)
+					"\n2. Imprimir Envios"
+					"\n3. Calcular costos"
+					"\n4. Generar archivo de costos para zona"
+					"\n5. Imprimir lista de zonas"
+					"\n6. SALIR\n\n","\nError! elija una opcion valida",1,6,5)==SUCCESS)
 			{
 				switch(option)
 				{
-				case 1:
+				case 1://pedir nombre del archivo
+
 					if(estaCargado == FALSE)
 					{
-						if(controller_loadTexto(listaEnvios,"data.csv") == SUCCESS)
+						if(controller_loadFromText(listaEnvios,"data.csv") == SUCCESS)//pasar variable
 						{
 							printf("Cargado con exito");
 							estaCargado = TRUE;
@@ -57,27 +55,44 @@ int main(void) {
 					}
 					break;
 				case 2:
+					if(ll_isEmpty(listaEnvios) == 0)
+					{
+						controller_printList(listaEnvios);
+					} else {
+						printf("\nDebe cargar el archivo primero");
+					}
 					break;
 				case 3:
-					controller_printList(listaEnvios);
+					if(ll_isEmpty(listaEnvios) == 0)
+					{
+						ll_map(listaEnvios,controller_CalculateOneCost);
+						controller_printListWithCost(listaEnvios);
+					} else {
+						printf("\nDebe cargar el archivo primero");
+					}
 					break;
 				case 4:
+					if(ll_isEmpty(listaEnvios) == 0)
+					{
+						controller_saveFileWithShippingByZone(listaEnvios);
+					} else {
+						printf("\nDebe cargar el archivo primero");
+					}
 					break;
 				case 5:
+					if(ll_isEmpty(listaEnvios) == 0)
+					{
+						controller_createListOfZones(listaEnvios);
+					} else {
+						printf("\nDebe cargar el archivo primero");
+					}
 					break;
 				case 6:
-
-					break;
-				case 7:
-					break;
-				case 8:
-					break;
-				case 9:
-					printf("ADIOS");
+					printf("chau chau");
 					break;
 				}//fin switch
 			}//fin if get menu
-		}while(option!=9);
+		}while(option!=6);
 	} else {
 		printf("no hay memoria para iniciar el programa");
 	}
